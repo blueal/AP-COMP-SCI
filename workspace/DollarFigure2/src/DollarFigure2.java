@@ -1,0 +1,4 @@
+
+public class DollarFigure2 {
+
+}
