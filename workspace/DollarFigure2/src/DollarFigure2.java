@@ -3,41 +3,46 @@
  * Designed to generate Dollar Figure Shape
  * 
  * SIZE = 3
- * $$$******$$$ 2332
+ * $$$******$$$ 023320
  * **$$****$$** 222222
  * ****$**$****41114
  * 
- * SIZE = 6
- * $$$$$**********$$$$$ 55555
+ * SIZE = 5
+ * $$$$$**********$$$$$ 0555550
  * **$$$$********$$$$** 24442
  * ****$$$******$$$**** 43334
  * ******$$****$$******
  * ********$**$********
  * 
- * Magic Formulas
- * Slashes = 4 * (Inverse of x + 1) - 4
- * Star = y=8x-8
  */
 
 
 
-public class StarFigure2 {
+public class DollarFigure2 {
 	//Size Variable
-	public static final int SIZE = 6;
+	public static final int SIZE = 3;
 	
 	public static void main(String[] args){
 		for(int i = 1; i <= SIZE; i++){
-			for(int j = 1; j <= (4 * ((SIZE + 1) - i)) - 4; j++){
-				System.out.print("/");
-			}
-			
-			for(i = 1 )
-			
-			for(int j = 1; j <= (8 * i) - 8; j++){
+			for(int j = 1; j <= (2 * i) - 2; j++){
 				System.out.print("*");
 			}
-			for(int j = 1; j <= (4 * ((SIZE + 1) - i)) - 4; j++){
-				System.out.print("\\");
+			for(int j = 1; j <= (SIZE - i) + 1; j++){
+				System.out.print("$");
+			}
+			
+			for(int j = 1; j <= SIZE - i + 1; j++){
+				System.out.print("*");
+			}
+			for(int j = 1; j <= SIZE - i + 1; j++){
+				System.out.print("*");	
+			}
+			
+			for(int j = 1; j <= (SIZE - i) + 1; j++){
+				System.out.print("$");
+			}
+			for(int j = 1; j <= (2 * i) - 2; j++){
+				System.out.print("*");
 			}
 			System.out.println();
 		}
