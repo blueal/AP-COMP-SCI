@@ -30,7 +30,13 @@ local.properties
 
 # Directories #
 /build/
+/bin/
 target/
+ 
+# OS Files #
+.DS_Store
+ 
+*.class
  
 # Package Files #
 *.jar
