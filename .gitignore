@@ -13,7 +13,6 @@ tmp/**/*
 *~.nib
 local.properties
 .classpath
-.settings/
 .loadpath
 /src/main/resources/rebel.xml
 # External tool builders
@@ -32,9 +31,6 @@ local.properties
 /build/
 /bin/
 target/
- 
-# OS Files #
-.DS_Store
  
 *.class
  
