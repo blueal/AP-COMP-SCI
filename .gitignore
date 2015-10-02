@@ -2,43 +2,43 @@
 # Eclipse
 ######################
  
-*.pydevproject
+#*.pydevproject
 .metadata
 .recommenders
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.loadpath
-/src/main/resources/rebel.xml
+#tmp/**
+#tmp/**/*
+#*.tmp
+#*.bak
+#*.swp
+#*~.nib
+#local.properties
+#.classpath
+#.loadpath
+#/src/main/resources/rebel.xml
 # External tool builders
-.externalToolBuilders/
+#.externalToolBuilders/
  
 # Locally stored "Eclipse launch configurations"
-*.launch
+#*.launch
  
 # CDT-specific
-.cproject
+#.cproject
  
 # PDT-specific
-.buildpath
+#.buildpath
 
 # Directories #
-/build/
-/bin/
-target/
+#/build/
+#/bin/
+#target/
  
-*.class
+#*.class
  
 # Package Files #
-*.jar
-*.war
-*.ear
-*.db
+#*.jar
+#*.war
+#*.ear
+#*.db
 
 # =========================
 # Operating System Files
