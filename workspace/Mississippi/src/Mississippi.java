@@ -1,4 +1,4 @@
-public class boughtMeACat {
+public class Mississippi {
     public static void main(String[] args) {
         name("cat");
         fed("cat");
