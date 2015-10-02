@@ -5,6 +5,7 @@
 #*.pydevproject
 .metadata
 .recommenders
+bin/**
 #tmp/**
 #tmp/**/*
 #*.tmp
@@ -29,7 +30,7 @@
 
 # Directories #
 #/build/
-#/bin/
+/bin/
 #target/
  
 #*.class
