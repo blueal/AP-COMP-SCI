@@ -7,6 +7,8 @@ public class DrawFigure2
     {
         drawLine();
         drawTop();
+        System.out.println
+        System.
         drawBottom();
         drawLine();
     }
@@ -18,8 +20,9 @@ public class DrawFigure2
         }
     }
     
-    public static void drawTop()
+    public static String drawTop()
     {
+    	String RETURN_STRING = "";
         for (int line = 1; line <= SUB_HEIGHT; line++)
         {
             System.out.print("|");
@@ -41,6 +44,7 @@ public class DrawFigure2
 
             System.out.println("|");
         }
+        return RETURN_STRING;
     }
 
     public static void drawBottom()

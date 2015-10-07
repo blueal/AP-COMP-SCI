@@ -1,23 +1,18 @@
 public class Confusing {
     public static void main(String[] args) {
-        method2();
-        method1();
-        method3();
-        method2();
+        String one = "two";
+        String two = "three";
+        String three = "1";
+        int number = 20;
+
+        sentence(one, two, 3);
+        sentence(two, three, 14);
+        sentence(three, three, number + 1);
+        sentence(three, two, 1);
+        sentence("eight", three, number / 2);
     }
-    
-    public static void method2() {
-        method1();
-        System.out.println("I am method 2.");
-    }
-    
-    public static void method3() {
-        method2();
-        System.out.println("I am method 3.");
-        method1();
-    }
-    
-    public static void method1() {
-        System.out.println("I am method 1.");
+
+    public static void sentence(String three, String one, int number) {
+        System.out.println(one + " times " + three + " = " + (number * 2));
     }
 }
