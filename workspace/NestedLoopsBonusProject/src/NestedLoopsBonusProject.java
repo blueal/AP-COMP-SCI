@@ -12,39 +12,39 @@ public class NestedLoopsBonusProject {
 	}
 
 	public static void main(String[] args){
-		for(int step = TOTAL_STEPS - 1; step >= 0; step--){
+		for(int step = TOTAL_STEPS; step >= 1; step--){
 			
-			for(int row = (step * STEP_WIDTH) - 1; row >= 0; row--){
+			for(int row = ((step - 1) * STEP_WIDTH) + (STEP_WIDTH - 3); row >= 1; row--){
 				System.out.print(" ");
 			}
-			System.out.print(" o  ");
+			System.out.print("o  ");
 			for(int stars = STEP_WIDTH; stars >= 1; stars--){
 				System.out.print("*");
 			}
 			System.out.print("*");
-			for(int j = ((TOTAL_STEPS - step) * (STEP_WIDTH)) - STEP_WIDTH; j >= 1; j--){
+			for(int j = ((TOTAL_STEPS - step) * STEP_WIDTH); j >= 1; j--){
 				System.out.print(" ");
 			}
 			System.out.println("*");
 			
 			
 			
-			for(int row = (step * STEP_WIDTH) - 1; row >= 0; row--){
+			for(int row = ((step - 1) * STEP_WIDTH) + (STEP_WIDTH - 4); row >= 1; row--){
 				System.out.print(" ");
 			}
 			System.out.print("/|\\ *");
-			for(int j = ((TOTAL_STEPS - step) * (STEP_WIDTH)); j >= 1; j--){
+			for(int j = ((TOTAL_STEPS - step) * STEP_WIDTH) + STEP_WIDTH; j >= 1; j--){
 				System.out.print(" ");
 			}
 			System.out.println("*");
 			
 			
 			
-			for(int row = (step * STEP_WIDTH) - 1; row >= 0; row--){
+			for(int row = ((step - 1) * STEP_WIDTH) + (STEP_WIDTH - 4); row >= 1; row--){
 				System.out.print(" ");
 			}
 			System.out.print("/ \\ *");
-			for(int j = ((TOTAL_STEPS - step) * (STEP_WIDTH)); j >= 1; j--){
+			for(int j = ((TOTAL_STEPS - step) * STEP_WIDTH) + STEP_WIDTH; j >= 1; j--){
 				System.out.print(" ");
 			}
 			System.out.println("*");
@@ -53,7 +53,7 @@ public class NestedLoopsBonusProject {
 		
 		//MAGIC NUMBERS BELOW
 		//
-		for(int i = (STEP_WIDTH + 1) * TOTAL_STEPS; i >= 0; i--){
+		for(int i = (STEP_WIDTH * TOTAL_STEPS) + STEP_WIDTH + 1; i >= 0; i--){
 			System.out.print("*");
 		}
 		
