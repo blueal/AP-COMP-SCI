@@ -5,19 +5,19 @@ public class DrawFigure2
     
     public static void main(String[] args)
     {
-        drawLine();
-        drawTop();
-        System.out.println
-        System.
-        drawBottom();
-        drawLine();
+        System.out.println(drawLine());
+        System.out.print(drawTop());
+        System.out.print(drawBottom());
+        System.out.println(drawLine());
     }
     
-    public static void writeSpaces(int number){
+    public static String writeSpaces(int number){
+    	String RETURN_STRING = "";
     	for (int i = 1; i <= (number - 1); i++)
         {
-            System.out.print(" ");                
+    		RETURN_STRING += " ";                
         }
+    	return RETURN_STRING;
     }
     
     public static String drawTop()
@@ -25,60 +25,66 @@ public class DrawFigure2
     	String RETURN_STRING = "";
         for (int line = 1; line <= SUB_HEIGHT; line++)
         {
-            System.out.print("|");
+        	RETURN_STRING += "|";
+            //System.out.print("|");
             
             // This loop, that writes spaces, is in many places.
             // How can we replace it with a method call?
-            writeSpaces(line);
+            RETURN_STRING += writeSpaces(line);
 
-            System.out.print("\\");
+            RETURN_STRING += "\\";
             int dots = 2 * SUB_HEIGHT - 2 * line;
             for (int i = 1; i <= dots; i++)
             {
-                System.out.print(".");                
+            	RETURN_STRING += ".";                
             }
 
-            System.out.print("/");
+            RETURN_STRING += "/";
             
-            writeSpaces(line);
+            RETURN_STRING += writeSpaces(line);
 
-            System.out.println("|");
+            RETURN_STRING += "|\n";
         }
         return RETURN_STRING;
     }
 
-    public static void drawBottom()
+    public static String drawBottom()
     {
+    	String RETURN_STRING = "";
         for (int line = 1; line <= SUB_HEIGHT; line++)
         {
-            System.out.print("|");
+            RETURN_STRING += "|";
 //            for (int i = 1; i <= (SUB_HEIGHT - line); i++)
 //            {
 //                System.out.print(" ");                
 //            }
-            writeSpaces((SUB_HEIGHT - line) + 1);
+            RETURN_STRING += writeSpaces((SUB_HEIGHT - line) + 1);
 
-            System.out.print("/");
+            RETURN_STRING += "/";
             for (int i = 1; i <= 2 * (line - 1); i++)
             {
-                System.out.print(".");                
+                RETURN_STRING += ".";                
             }
 
-            System.out.print("\\");
+            RETURN_STRING += "\\";
             
-            writeSpaces((SUB_HEIGHT - line) + 1);
+            RETURN_STRING += writeSpaces((SUB_HEIGHT - line) + 1);
             
-            System.out.println("|");
+            RETURN_STRING += "|\n";
         }
+        return RETURN_STRING;
     }
 
-    public static void drawLine()
+    public static String drawLine()
     {
-        System.out.print("+");
+    	String RETURN_STRING = "";
+        RETURN_STRING += "+";
         for (int i = 1; i <= (2 * SUB_HEIGHT); i++)
         {
-            System.out.print("-");            
+            RETURN_STRING += "-";            
         }
-        System.out.println("+");
+        RETURN_STRING += "+";
+        
+        return RETURN_STRING;
     }
 }
