@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class DrawFigure2
 {
@@ -5,6 +6,10 @@ public class DrawFigure2
     
     public static void main(String[] args)
     {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Size?");
+    	
+    	
         System.out.println(drawLine());
         System.out.print(drawTop());
         System.out.print(drawBottom());

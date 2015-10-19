@@ -68,26 +68,7 @@ public class Equestria {
 	
 	public static String longestTrip(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
 		
-		String longestDistance = "";
-		Math.max(distance(x1, y1, x2, y2), distance(x1, y1, x3, y3));
-		
-		double[][] distanceList = new double[12][1];
-		
-		distanceList[1][0] = "";
-		distanceList[1][1] = distance(x1, y1, x2, y2);
-		distanceList[2] = distance(x1, y1, x3, y3);
-		distanceList[3] = distance(x1, y1, x4, y4);
-		distanceList[4] = distance(x2, y2, x1, y1);
-		distanceList[5] = distance(x2, y2, x3, y3);
-		distanceList[6] = distance(x2, y2, x4, y4);
-		distanceList[7] = distance(x3, y3, x1, y1);
-		distanceList[8] = distance(x3, y3, x2, y2);
-		distanceList[9] = distance(x3, y3, x4, y4);
-		distanceList[10] = distance(x4, y4, x1, y1);
-		distanceList[11] = distance(x4, y4, x2, y2);
-		distanceList[12] = distance(x4, y4, x3, y3);
-		
-		double max = distanceList[1];
+
 		
 	}
 	
