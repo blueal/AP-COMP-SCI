@@ -1,10 +1,30 @@
 package calculator;
+import java.util.Scanner;
 
 public class Calculator 
 {
     public static void main(String[] args) 
     {
-        // TODO: Read the input from the user and call produceAnswer with an equation
+    	//Initialize Scanner and Variables
+    	Scanner console = new Scanner(System.in);
+    	boolean takeInput = true;
+    	
+    	//Start a while loop to continuously take input until you type "quit"
+    	while(takeInput){
+    		//Take input and store it
+    		String input = console.nextLine();
+    		
+    		//Check if they are a quitter
+    		if(input.equalsIgnoreCase("quit")){
+    			//exit the loop
+    			takeInput = false;
+    		}
+    		else{
+    			//Let's parse the input and print it
+    			System.out.println(produceAnswer(input));
+    		}
+    	}
+    	//System.out.print(produceAnswer(console.nextLine()));
 
     }
        
@@ -23,9 +43,55 @@ public class Calculator
      */
     public static String produceAnswer(String input)
     { 
-        // TODO: Implement this function to produce the solution to the input    
+
+    	
+    	int spaceCount = 0;
+    	int index = 0;
+    	int arrayCount = 0;
+    	for(int i = 0; i < input.length(); i++){
+    		if(input.substring(i, i +1) == " "){
+    			spaceCount++;
+    		}
+    	}
+    	
+    	String[] numbers = new String[spaceCount + 5];
+    	
+    	for(int i = 0; i < input.length(); i++){
+    		if(input.substring(i, i + 1).equals(" ")){
+    			System.out.println("FOUND A SPACE");
+    			numbers[arrayCount] = input.substring(index, i + 1);
+    			System.out.println(input.substring(index, i + 1));
+    			index = i + 1;
+    			arrayCount++;
+    		}
+    		
+    		if(i == input.length()){
+    			for(int j = input.length() - 1; j >= 0; j--){
+    	    		//Check if there's a space
+    	    		if(input.substring(j, j + 1).equals(" ")){
+    	    			//There's a space! Save the last Operand.
+    	    			numbers[arrayCount] = input.substring(i + 1);
+    	    			System.out.println("WE GOT THE LAST NUMBER");
+    	    		}
+    	    	}
+    		}
+    	}
+    	
+    	
+    	/*We will scan from right to left
+    	for(int i = input.length() - 1; i >= 0; i--){
+    		//Check if there's a space
+    		if(input.substring(i, i + 1).equals(" ")){
+    			//There's a space! Save the last Operand.
+    			lastOperand = input.substring(i + 1);
+    			input = input.substring(0, i);
+    		}
+    	}
+    	*/
+    	//No space detected, return everything
+		return numbers[0];
+		
         
-        return "";
     }
 
     
