@@ -1,0 +1,89 @@
+﻿import java.util.Scanner;
+
+start class
+{
+    start main
+    {
+    	//Initialize Scanner and Variables
+    	Initialize Scanner
+    	Create takeInput boolean, set to true
+    	
+    	//Start a while loop to continuously take input until you type "quit"
+    	while(takeInput){
+    		//Take input and store it
+    		
+    		Take input, store it to input string
+    		
+    		//Check if they are a quitter
+    		Check if they typed quite{
+    			//exit the loop
+    			set takeInput to false
+    		}
+    		else{
+    			//Let's parse the input and print it
+    			produceAnswer and print it
+    		}
+    	}
+
+    }
+       
+    start produceAnswer, take string input, return String
+    { 
+
+    	
+    	create spaceCount, set to 0;
+    	create index, set to 0;
+    	create arrayCount, set to 0;
+    	create operator, set to "";
+    	
+
+    	for(scan through the input){
+    		if(check if a character is a space){
+			//found a space!
+    			spaceCount++;
+    		}
+    	}
+    	
+
+    	Create new int array with (spaceCount + 1) elements;
+    	
+
+    	for(int i Scan through every character in the input string){
+		//label our main for loop
+    		main:
+    		if(Check if 1 less than the end of the scan of input){
+	    		if(check if the character is a space){
+	    			//System.out.println("FOUND A SPACE");
+	    			if(check if its an operator or operand){
+	    				numbers[arrayCount] = convert to int(input.substring(index, i));
+	    			}
+	    			else{
+					Store the operator into it's own dedicated variable
+	    			}
+	    			//System.out.println(numbers[arrayCount]);
+	    			increment index to current place plus 1;
+	    			increment arrayCount;
+	    		}
+    		}else{
+				for(Start scanning right to left){
+		    		//Check if there's a space
+		    		if(check if character is a space){
+		    			//There's a space! Save the last Operand.
+		    			//System.out.println("Saving last number!");
+		    			numbers[arrayCount] = convert to int(Character we reveresd scanned);
+		    			//System.out.println(numbers[arrayCount]);
+		    			break out of main for loop. We are done.
+		    		}
+		    	}
+				
+    		}
+    	}
+    	
+    	
+    	Initialize string output, set to "";
+    	Check what the variable operator is set to, perform the operation on the first and 3rd array entry
+		return the answer from this operation as a string
+		
+        
+    }
+}
