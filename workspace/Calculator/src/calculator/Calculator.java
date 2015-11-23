@@ -12,6 +12,7 @@ public class Calculator
     	//Start a while loop to continuously take input until you type "quit"
     	while(takeInput){
     		//Take input and store it
+    		System.out.print("> ");
     		String input = console.nextLine();
     		
     		//Check if they are a quitter
@@ -48,48 +49,62 @@ public class Calculator
     	int spaceCount = 0;
     	int index = 0;
     	int arrayCount = 0;
+    	String operator = "";
+    	
     	for(int i = 0; i < input.length(); i++){
-    		if(input.substring(i, i +1) == " "){
+    		if(input.substring(i, i + 1).equals(" ")){
     			spaceCount++;
     		}
     	}
     	
-    	String[] numbers = new String[spaceCount + 5];
+    	int[] numbers = new int[spaceCount + 1];
     	
     	for(int i = 0; i < input.length(); i++){
-    		if(input.substring(i, i + 1).equals(" ")){
-    			System.out.println("FOUND A SPACE");
-    			numbers[arrayCount] = input.substring(index, i + 1);
-    			System.out.println(input.substring(index, i + 1));
-    			index = i + 1;
-    			arrayCount++;
-    		}
-    		
-    		if(i == input.length()){
-    			for(int j = input.length() - 1; j >= 0; j--){
-    	    		//Check if there's a space
-    	    		if(input.substring(j, j + 1).equals(" ")){
-    	    			//There's a space! Save the last Operand.
-    	    			numbers[arrayCount] = input.substring(i + 1);
-    	    			System.out.println("WE GOT THE LAST NUMBER");
-    	    		}
-    	    	}
+    		main:
+    		if(i < input.length() - 1){
+	    		if(input.substring(i, i + 1).equals(" ")){
+	    			//System.out.println("FOUND A SPACE");
+	    			if(arrayCount % 2 != 1){
+	    				numbers[arrayCount] = Integer.parseInt(input.substring(index, i));
+	    			}
+	    			else{
+	    				operator = input.substring(index, i);
+	    			}
+	    			//System.out.println(numbers[arrayCount]);
+	    			index = i + 1;
+	    			arrayCount++;
+	    		}
+    		}else{
+				for(int j = input.length() - 1; j >= 0; j--){
+		    		//Check if there's a space
+		    		if(input.substring(j, j + 1).equals(" ")){
+		    			//There's a space! Save the last Operand.
+		    			//System.out.println("Saving last number!");
+		    			numbers[arrayCount] = Integer.parseInt(input.substring(j + 1));
+		    			//System.out.println(numbers[arrayCount]);
+		    			break main;
+		    		}
+		    	}
+				
     		}
     	}
     	
     	
-    	/*We will scan from right to left
-    	for(int i = input.length() - 1; i >= 0; i--){
-    		//Check if there's a space
-    		if(input.substring(i, i + 1).equals(" ")){
-    			//There's a space! Save the last Operand.
-    			lastOperand = input.substring(i + 1);
-    			input = input.substring(0, i);
-    		}
+    	String output = "";
+    	if(operator.equals("+")){
+    		output = Integer.toString(numbers[0] + numbers[2]);
     	}
-    	*/
-    	//No space detected, return everything
-		return numbers[0];
+    	else if(operator.equals("-")){
+    		output = Integer.toString(numbers[0] - numbers[2]);
+    	}
+    	else if(operator.equals("/")){
+    		output = Integer.toString(numbers[0] / numbers[2]);
+    	}
+    	else if(operator.equals("*")){
+    		output = Integer.toString(numbers[0] * numbers[2]);
+    	}
+    	
+		return output;
 		
         
     }
