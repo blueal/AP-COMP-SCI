@@ -51,7 +51,7 @@ public class DataTransformation {
 	
 	public static void wordLengthsTally(String[] input){
 		
-		//Find the longest Array
+		//Find the longest element by word count in the array 
 		int longestArray = Integer.MIN_VALUE;
 		for(int i = 0; i < input.length; i++){
 			if(wordCount(input[i]) > longestArray){
@@ -60,9 +60,10 @@ public class DataTransformation {
 			
 		}
 		
+		//Create the 2D array. Note that there will be a lot of null elements
 		String[][] words = new String[input.length][longestArray];
 		
-		//Put everything in a 2D array
+		//Put everything in the 2D array
 		for(int i = 0; i < input.length; i++){
 			String[] temp = splitString(input[i]);
 			for(int j = 0; j < temp.length; j++){
@@ -70,7 +71,7 @@ public class DataTransformation {
 			}
 		}
 		
-		//Find the longest word of them all
+		//Find the longest word that exists, save its length
 		int longestWord = Integer.MIN_VALUE;
 		for(int i = 0; i < words.length; i++){
 			if(maxWordLength(words[i]) > longestWord){
@@ -78,11 +79,13 @@ public class DataTransformation {
 			}
 		}
 		
+		//Keep a 1D array for the tally
 		int[] count = new int[longestWord];
 		
 		//Count how many words are of each length
 		for(int i = 0; i < words.length; i++){
 			for(int j = 0; j < words[i].length; j++){
+				//Make sure to prevent NullPointerException
 				if(words[i][j] != null && !words[i][j].isEmpty()){
 					count[words[i][j].length() - 1]++;
 				}
@@ -98,12 +101,21 @@ public class DataTransformation {
 	}
 	
 	public static String[] intersectWords(String input1, String input2){
+		//
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		String[] inputA = splitString(input1);
 		String[] inputB = splitString(input2);
 		int sameWordCount = 0;
 		
-		//Yeah this is kind of complicated
-		//It took me over an hour to think of it all before I wrote it all out in 15 minutes
 		
 		for(int i = 0; i < inputA.length; i++){
 			boolean repeatWord = false;
