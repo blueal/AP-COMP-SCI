@@ -24,8 +24,46 @@ public class FunWithSquareMatrices {
     	System.out.println(isMagicSquare(MAGIC_MATRIX_5));
     	System.out.println(isMagicSquare(MAGIC_MATRIX_6));
     	System.out.println(calculateSum(MAGIC_MATRIX_6, 1,1,2,3));
+    	printMatrix(numberHourglass(7), false);
+    	printMatrix(squarePyramid(10), true);
+    	printMatrix(magicBox(7), true);
     }
     
+    public static int[][] magicBox(int n){
+    	int[][] magic = new int[n][n];
+    	for(int i = 0; i < n; i++){
+    		for(int j = 0; j < n; j++){
+    			magic[i][j] = j;
+    		}
+    	}
+    	
+    	return magic;
+    }
+    public static int[][] squarePyramid(int n){
+    	int[][] squarePyramid = new int[n][n];
+    	for(int i = 0; i < n; i++){
+    		for(int j = 0; j < n; j++){
+    			squarePyramid[i][j] = j;
+    		}
+    	}
+    	
+    	return squarePyramid;
+    }
+    public static int[][] numberHourglass(int n){
+    	int[][] hourglass = new int[n][n];
+    	
+    	for(int i = 0; i < n; i++){
+    		//Top
+    		for(int j = i; j < n - i; j++){
+    			hourglass[i][j] = i + 1;
+    		}
+    		//Bottom
+    		for(int j = (n - i) - 1; j < i + 1; j++){
+    			hourglass[i][j] = n - i;
+    		}
+    	}
+    	return hourglass;
+    }
     public static int calculateSum(int[][] inputMatrix, int topLeftA, int topLeftB, int bottomRightA, int bottomRightB){
     	int sum = 0;
     	for(int i = topLeftA; i <= bottomRightA; i++){
