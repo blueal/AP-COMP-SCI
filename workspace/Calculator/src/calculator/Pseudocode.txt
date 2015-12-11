@@ -44,8 +44,11 @@ start class
     		}
     	}
     	
+    	if(spaceCount < 2){
+    		return "<ERROR> Invalid expression format.";
+    	}
 
-    	Create new int array with (spaceCount + 1) elements;
+    	Create new string array with (spaceCount + 1) elements;
     	
 
     	for(int i Scan through every character in the input string){
@@ -55,7 +58,7 @@ start class
 	    		if(check if the character is a space){
 	    			//System.out.println("FOUND A SPACE");
 	    			if(check if its an operator or operand){
-	    				numbers[arrayCount] = convert to int(input.substring(index, i));
+	    				numbers[arrayCount] = input.substring(index, i);
 	    			}
 	    			else{
 					Store the operator into it's own dedicated variable
@@ -77,6 +80,29 @@ start class
 		    	}
 				
     		}
+    	}
+
+    	/*Check for error in input*/
+    	
+    	//Check for valid number 1
+    	if(first number is not valid){
+    		return "<ERROR> Invalid value: " + first number;
+    	}
+    	
+    	//Check for valid operator
+    	if(operator is not valid){
+    		return "<ERROR> Invalid operator encountered: " + operator;
+    	}
+    	
+    	//Check for valud number 2
+    	if(second number is not valid){
+    		return "<ERROR> Invalid value: " + second number;
+    	}
+    	
+
+    	//Check for divide by zero
+    	if(its a divide by zero operation){
+    		return "<ERROR> Cannot divide by zero.";
     	}
     	
     	
