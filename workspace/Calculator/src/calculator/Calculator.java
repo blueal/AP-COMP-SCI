@@ -57,15 +57,20 @@ public class Calculator
     		}
     	}
     	
-    	int[] numbers = new int[spaceCount + 1];
+    	if(spaceCount < 2){
+    		return "<ERROR> Invalid expression format.";
+    	}
+    	
+    	String[] numbers = new String[spaceCount + 1];
     	
     	for(int i = 0; i < input.length(); i++){
     		main:
     		if(i < input.length() - 1){
+    			//Find and store everything except for the last operator
 	    		if(input.substring(i, i + 1).equals(" ")){
 	    			//System.out.println("FOUND A SPACE");
 	    			if(arrayCount % 2 != 1){
-	    				numbers[arrayCount] = Integer.parseInt(input.substring(index, i));
+	    				numbers[arrayCount] = (input.substring(index, i));
 	    			}
 	    			else{
 	    				operator = input.substring(index, i);
@@ -75,12 +80,14 @@ public class Calculator
 	    			arrayCount++;
 	    		}
     		}else{
+    			
+    			//This code is just for finding the last operator    			
 				for(int j = input.length() - 1; j >= 0; j--){
 		    		//Check if there's a space
 		    		if(input.substring(j, j + 1).equals(" ")){
 		    			//There's a space! Save the last Operand.
 		    			//System.out.println("Saving last number!");
-		    			numbers[arrayCount] = Integer.parseInt(input.substring(j + 1));
+		    			numbers[arrayCount] = (input.substring(j + 1));
 		    			//System.out.println(numbers[arrayCount]);
 		    			break main;
 		    		}
@@ -90,21 +97,46 @@ public class Calculator
     	}
     	
     	
-    	String output = "";
-    	if(operator.equals("+")){
-    		output = Integer.toString(numbers[0] + numbers[2]);
-    	}
-    	else if(operator.equals("-")){
-    		output = Integer.toString(numbers[0] - numbers[2]);
-    	}
-    	else if(operator.equals("/")){
-    		output = Integer.toString(numbers[0] / numbers[2]);
-    	}
-    	else if(operator.equals("*")){
-    		output = Integer.toString(numbers[0] * numbers[2]);
+    	
+    	/*Check for error in input*/
+    	
+    	//Check for valid number 1
+    	if(!isValidNumber(numbers[0])){
+    		return "<ERROR> Invalid value: " + numbers[0];
     	}
     	
-		return output;
+    	//Check for valid operator
+    	if(!(operator.equals("+") || operator.equals("-") || operator.equals("/") || operator.equals("*"))){
+    		return "<ERROR> Invalid operator encountered: " + operator;
+    	}
+    	
+    	//Check for valud number 2
+    	if(!isValidNumber(numbers[2])){
+    		return "<ERROR> Invalid value: " + numbers[2];
+    	}
+    	
+
+    	//Check for divide by zero
+    	if(operator.equals("/") && numbers[2].equals("0")){
+    		return "<ERROR> Cannot divide by zero.";
+    	}
+    	
+    	
+    	int output = 0;
+    	if(operator.equals("+")){
+    		output = Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[2]);
+    	}
+    	else if(operator.equals("-")){
+    		output = Integer.parseInt(numbers[0]) - Integer.parseInt(numbers[2]);
+    	}
+    	else if(operator.equals("/")){
+    		output = Integer.parseInt(numbers[0]) / Integer.parseInt(numbers[2]);
+    	}
+    	else if(operator.equals("*")){
+    		output = Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[2]);
+    	}
+    	
+		return Integer.toString(output);
 		
         
     }
