@@ -12,21 +12,51 @@ public class FunWithSquareMatrices {
     public static final int[][] MAGIC_MATRIX_6 = {{1, 2, 3, 4}, {2, 3, 4, 1}, {3, 4, 1, 2}, {4, 1, 2, 3}}; // no    
     
     public static void main(String[] args) {
+    	/*EXCERCISE 1*/
+    	System.out.println("Excercise 1:");
+    	printMatrix(MATRIX_2, true);
+    	printMatrix(MATRIX_2, false);
+    	
+    	/*EXCERCISE 2*/
+    	System.out.println("Excercise 2:");
     	printMatrix(MATRIX_1, true);
     	shiftUp(MATRIX_1);
-    	System.out.println("SHIFT");
+    	System.out.println("SHIFT UP");
     	printMatrix(MATRIX_1, true);
+    	
+    	/*EXCERCISE 3*/
+    	System.out.println("Excercise 3:");
+    	printMatrix(numberPyramid(4), false);
     	printMatrix(numberPyramid(1), false);
+    	printMatrix(numberPyramid(7), false);
+    	
+    	/*EXCERCISE 4*/
+    	System.out.println("Excercise 4: ");
     	System.out.println(isMagicSquare(MAGIC_MATRIX_1));
     	System.out.println(isMagicSquare(MAGIC_MATRIX_2));
     	System.out.println(isMagicSquare(MAGIC_MATRIX_3));
     	System.out.println(isMagicSquare(MAGIC_MATRIX_4));
     	System.out.println(isMagicSquare(MAGIC_MATRIX_5));
     	System.out.println(isMagicSquare(MAGIC_MATRIX_6));
+    	
+    	/*EXTRA CREDIT*/
+    	System.out.println("Extra Credit - Submatrix Sum:");
+    	System.out.println(calculateSum(MAGIC_MATRIX_4, 1,1,2,2));
+    	System.out.println(calculateSum(MAGIC_MATRIX_5, 1,1,2,2));
     	System.out.println(calculateSum(MAGIC_MATRIX_6, 1,1,2,3));
-    	printMatrix(numberHourglass(7), false);
+    	
+    	System.out.println("Extra Credit - Hour Glass: ");
+    	printMatrix(numberHourglass(5), false);
+    	printMatrix(numberHourglass(6), false);
+    	printMatrix(numberHourglass(3), false);
+    	
+    	System.out.println("Extra Credit - Square Pyramid: ");
+    	printMatrix(squarePyramid(3), true);
+    	printMatrix(squarePyramid(6), true);
+    	printMatrix(squarePyramid(7), true);
     	printMatrix(squarePyramid(10), true);
-    	printMatrix(magicBox(7), true);
+    	
+    	//printMatrix(magicBox(7), true);
     }
     
     public static int[][] magicBox(int n){
