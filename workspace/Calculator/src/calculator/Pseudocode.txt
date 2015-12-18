@@ -31,12 +31,11 @@ start class
     { 
 
     	
-    	create spaceCount, set to 0;
-    	create index, set to 0;
-    	create arrayCount, set to 0;
-    	create operator, set to "";
+    	create int spaceCount set it to 0;
+    	create int index set it to 0;
+    	create int arrayCount set it 0;
     	
-
+    	
     	for(scan through the input){
     		if(check if a character is a space){
 			//found a space!
@@ -44,72 +43,108 @@ start class
     		}
     	}
     	
-    	if(spaceCount < 2){
+    	
+    	if(spaceCount == 1){
     		return "<ERROR> Invalid expression format.";
     	}
-
+    	else if(spaceCount == 0){
+    		return input;
+    	}
+    	
     	Create new string array with (spaceCount + 1) elements;
     	
-
-    	for(int i Scan through every character in the input string){
-		//label our main for loop
-    		main:
+    	This is our label for the for loop
+    	 |
+    	\|/
+    	main: for(Scan through every character in the input string){
+    		boolean operator = (arrayCount % 2 == 1);
     		if(Check if 1 less than the end of the scan of input){
-	    		if(check if the character is a space){
-	    			//System.out.println("FOUND A SPACE");
-	    			if(check if its an operator or operand){
-	    				numbers[arrayCount] = input.substring(index, i);
+    			//Find and store everything except for the last operator
+	    		if(check if its a space)){
+	    			String item = input.substring(index, i); //Save the current item where working on to String item
+	    			
+	    			if(operator){
+	    				if(not a ValidOperator(item)){
+	    					return "<ERROR> Invalid operator encountered: " + item;
+	    				}
+	    				
 	    			}
 	    			else{
-					Store the operator into it's own dedicated variable
+	    				if( not a ValidNumber(item)){
+	    					return "<ERROR> Invalid value: " + item;
+	    				}
+	    				if(number is a zero and isn't the first number){
+	    					if(last operator entered is divide){
+	    						return "<ERROR> Cannot divide by zero.";
+	    					}
+	    				}
+	    				
 	    			}
-	    			//System.out.println(numbers[arrayCount]);
-	    			increment index to current place plus 1;
+	    			
+	    			numbers[arrayCount] = item; //Save the item to the next spot in the numbers array
+					increment index to current place plus 1;
 	    			increment arrayCount;
+	    			
 	    		}
     		}else{
-				for(Start scanning right to left){
-		    		//Check if there's a space
-		    		if(check if character is a space){
+    			//Find and store last operator
+				for(Loop from right to left){
+		    		if(check if character is a space)){
 		    			//There's a space! Save the last Operand.
-		    			//System.out.println("Saving last number!");
-		    			numbers[arrayCount] = convert to int(Character we reveresd scanned);
-		    			//System.out.println(numbers[arrayCount]);
-		    			break out of main for loop. We are done.
+		    			Save everything to the right of the space to string item
+	    				
+		    			if(isValidNumber(item)){
+		    				if(number entered is a zero and previous opertor is a divide){
+		    					return "<ERROR> Cannot divide by zero.";
+		    				}
+		    			}
+		    			else if(isValidOperator(item)){
+		    				//You forgot a number
+		    				return "<ERROR> Invalid expression format.";
+		    			}
+		    			else if(operator){
+		    				return "<ERROR> Invalid operator encountered: " + item;
+		    			}
+		    			else {
+		    				return "<ERROR> Invalid value: " + item;
+		    			}
+		    			
+		    			save the last item to its place in the array
+		    			break main;
 		    		}
 		    	}
 				
     		}
     	}
+    	
+    	if(Input is even, they forgot a number at the end){
+    		//The test case testErrorFinal9() requires I put this after we parse the input
+    		return "<ERROR> Invalid expression format.";
+    	}
+    	
+    	set int output to the first number;
+    	for(Loop through the opertors in the array){
+    		
+        	if(operator is a +){
+        		add the next number to the output;
+        	}
+        	else if(operator is a -){
+        		subtract the next number to the output;
+        	}
+        	else if(operator is a /){
+        		//Divide by zero is checked when parsing input
+    			divide the next number to the output;
+        	}
+        	else if(operator is a *){
+        		multiple the next number to the output;
+        	}
+    	}
+    	
+    	return (Convert output to string);
 
-    	/*Check for error in input*/
-    	
-    	//Check for valid number 1
-    	if(first number is not valid){
-    		return "<ERROR> Invalid value: " + first number;
-    	}
-    	
-    	//Check for valid operator
-    	if(operator is not valid){
-    		return "<ERROR> Invalid operator encountered: " + operator;
-    	}
-    	
-    	//Check for valud number 2
-    	if(second number is not valid){
-    		return "<ERROR> Invalid value: " + second number;
-    	}
-    	
-
-    	//Check for divide by zero
-    	if(its a divide by zero operation){
-    		return "<ERROR> Cannot divide by zero.";
-    	}
-    	
-    	
-    	Initialize string output, set to "";
-    	Check what the variable operator is set to, perform the operation on the first and 3rd array entry
-		return the answer from this operation as a string
-		
-        
     }
 }
+
+    public static boolean isValidOperator(String input){
+    	return true if its a valid operator;
+    }

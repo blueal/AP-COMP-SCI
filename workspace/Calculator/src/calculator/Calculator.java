@@ -1,5 +1,4 @@
 package calculator;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Calculator 
@@ -119,7 +118,6 @@ public class Calculator
 		    				return "<ERROR> Invalid operator encountered: " + item;
 		    			}
 		    			else {
-		    				//return "<ERROR> Invalid operator encountered: " + item;
 		    				return "<ERROR> Invalid value: " + item;
 		    			}
 		    			
@@ -155,8 +153,7 @@ public class Calculator
     	}
     	
     	return Integer.toString(output);
-		
-        
+
     }
 
     
