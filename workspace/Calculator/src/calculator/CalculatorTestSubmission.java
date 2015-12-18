@@ -121,9 +121,9 @@ public class CalculatorTestSubmission
     @Test public void testMixOperators1() {assertEquals("7", Calculator.produceAnswer("2 * 3 + 5 - 4"));}
     @Test public void testMixOperators2() {assertEquals("-149", Calculator.produceAnswer("100 / 2 * -3 + 5 - 4"));}  
     @Test public void testMixOperators3() {assertEquals("-4", Calculator.produceAnswer("8 - 3 + -9 + 0"));}
-    @Test public void testMixOperators4() {assertEquals("1", Calculator.produceAnswer("3 * 5 * 10  / 10 / 5 / 3"));}
-    @Test public void testMixOperators5() {assertEquals("1", Calculator.produceAnswer("-3 * -5 * -10  / -10 / -5 / -3"));}
-    @Test public void testMixOperators6() {assertEquals("0", Calculator.produceAnswer("-3 * -5 * -10  / -10 / -5 / -3 - 1"));}
+    @Test public void testMixOperators4() {assertEquals("1", Calculator.produceAnswer("3 * 5 * 10 / 10 / 5 / 3"));}
+    @Test public void testMixOperators5() {assertEquals("1", Calculator.produceAnswer("-3 * -5 * -10 / -10 / -5 / -3"));}
+    @Test public void testMixOperators6() {assertEquals("0", Calculator.produceAnswer("-3 * -5 * -10 / -10 / -5 / -3 - 1"));}
     @Test public void testMixOperators7() {assertEquals("0", Calculator.produceAnswer("3 / 3 * 1 + 1 - 2"));}
                  
     @Test public void testErrorFinal1() {assertEquals("<ERROR> Cannot divide by zero.", Calculator.produceAnswer("3 + 2 / 0"));}
