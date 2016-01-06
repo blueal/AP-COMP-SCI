@@ -12,10 +12,10 @@ public class Card {
 	
 	public Card(int suit, int value){
 		if(suit < MIN_SUIT || suit > MAX_SUIT){
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Suit is above or below limits: " + suit);
 		}
 		if(value < MIN_VALUE || value > MAX_VALUE){
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Value is above or below limits: " + value);
 		}
 		this.suit = suit;
 		this.value = value;				

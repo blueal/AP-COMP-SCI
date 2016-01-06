@@ -19,6 +19,12 @@ public class Spades {
 		System.out.println(c5);
 		
 		System.out.println(deck1);
+		deck1.shuffle();
+		System.out.println(deck1);
 		
+		Hand[] hands = deck1.deal();
+		for(int i = 0; i < hands.length; i++){
+			System.out.println(hands[i]);
+		}
 	}
 }
