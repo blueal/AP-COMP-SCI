@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Spades {
 	public static void main (String[] args){
@@ -24,7 +25,15 @@ public class Spades {
 		
 		Hand[] hands = deck1.deal();
 		for(int i = 0; i < hands.length; i++){
-			System.out.println(hands[i]);
+			System.out.println("HAND " + i + ": " + hands[i]);
+		}
+		
+		Scanner scan = new Scanner(System.in);
+	
+		boolean takingInput = true;
+		while(){
+			
 		}
 	}
+
 }

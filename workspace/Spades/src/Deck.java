@@ -25,24 +25,45 @@ public class Deck {
 	}
 	
 	public Hand[] deal(){
-		Hand[] hands = new Hand[4];
+		Hand[] hands = new Hand[Hand.NUM_HANDS];
 		
 		for(int i = 0; i < hands.length; i++){
 			
-			Card[] c = Arrays.copyOfRange(this.deck, i * 13, (i * 13) + 12);
-			hands[i] = new Hand(c);
+			int startHand = i * Hand.HAND_SIZE;
+			int endHand = startHand + Hand.HAND_SIZE;
 			
+			Card[] c = Arrays.copyOfRange(this.deck, startHand, endHand );
+			hands[i] = new Hand(c);
 			
 		}
 		return hands;
 	}
 	
+	public static String returnCardsAsString(Card[] cardsArray){
+		if(cardsArray == null || cardsArray.length == 0){
+			return "";
+		}
+		else if (cardsArray.length == 1){
+			return "" + cardsArray[0];
+		}
+		else{
+			String output = "";
+			for(int i = 0; i < cardsArray.length - 1; i++){
+				output += cardsArray[i] + ", ";
+			}
+			output += cardsArray[cardsArray.length - 1];
+			return output;
+		}
+	}
+	
 	public String toString(){
-		String output = "";
+		return returnCardsAsString(this.deck);
+		/*String output = "";
 		for(int i = 0; i < this.deck.length - 2; i++){
 			output += this.deck[i] + ", ";
 		}
 		output += this.deck[this.deck.length - 1];
 		return output;
+		*/
 	}
 }
