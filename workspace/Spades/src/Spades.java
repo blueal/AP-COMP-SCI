@@ -28,12 +28,19 @@ public class Spades {
 			System.out.println("HAND " + i + ": " + hands[i]);
 		}
 		
-		Scanner scan = new Scanner(System.in);
-	
+		Scanner console = new Scanner(System.in);
+		
 		boolean takingInput = true;
-		while(){
-			
+		while(takingInput){
+			System.out.print("ENTER YA HAND YOU WANT TO REMOVE A CARD FROM: ");
+			int deckToRemoveCard = console.nextInt();
+			System.out.print("ENTER YA CARD YA WANT TO REMOVE: ");
+			String cardToRemove = console.next();
+			System.out.println("REMOVING THIS CARD [" + cardToRemove + "] FROM DECK [" + deckToRemoveCard + "]");
+			System.out.println("This card has been removed: " + hands[deckToRemoveCard].removeCard(cardToRemove));
+			System.out.println("HAND " + deckToRemoveCard + ": " + hands[deckToRemoveCard]);
 		}
+		
 	}
 
 }

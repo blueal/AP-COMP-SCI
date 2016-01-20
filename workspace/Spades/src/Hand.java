@@ -15,9 +15,10 @@ public class Hand {
 	public Card removeCard(String cardName){
 		Card temp = null;
 		for(int i = 0; i < this.cards.length; i++){
-			if(this.cards[i].equals(cardName)){
+			if(this.cards[i].toString().equals(cardName)){
 				temp = this.cards[i];
 				this.cards[i] = null;
+				break;
 			}
 		}
 		return temp;
