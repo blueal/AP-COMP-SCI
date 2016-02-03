@@ -1,7 +1,10 @@
 
 public class Animal {
 	private int age;
-
+	
+	public Animal(int age){
+		this.setAge(age);
+	}
 	
 	public int getAge() {
 		return age;

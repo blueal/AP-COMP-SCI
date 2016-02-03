@@ -2,9 +2,13 @@
 public class Bird extends Animal implements FlyingObject {
 	
 	public Bird(int age){
-		this.setAge(age);
+		super(age);
 	}
-	public void fly(){
-		System.out.println("Bird flying");
+	public String fly(){
+		return "Bird flying";
+	}
+	
+	public String toString(){
+		return "Bird is " + this.getAge() + " years old";
 	}
 }

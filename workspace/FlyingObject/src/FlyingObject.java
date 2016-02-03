@@ -1,4 +1,4 @@
 
 public interface FlyingObject {
-	public void fly();
+	public String fly();
 }
