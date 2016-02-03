@@ -1,19 +1,30 @@
+import java.util.Arrays;
 
 public class GroceryList {
-	private String[] groceryListItems = new String[0];
-	private int[] groceryListQuantity = new int[0];
-	private int[] groceryListCost = new int[0];
+	private GroceryItemOrder[] groceryListItems;
 	
-	public String toString{
+	public GroceryList(){
+		this.groceryListItems = new GroceryItemOrder[0];
+	}
+	
+	public void add(GroceryItemOrder item){
+		this.groceryListItems = Arrays.copyOf(this.groceryListItems, this.groceryListItems.length + 1);
+		this.groceryListItems[this.groceryListItems.length - 1] = item;
+	}
+	
+	public String toString(){
 		String output = "[";
-		for(int i = 0; i < groceryListItems.length; i++){
-			output += groceryListItems[i] + "/";
-			output += groceryListQuantity[i] + "/";
-			output += groceryListCost[i] + "/";
-			if(i < groceryListItems.length - 1){
-				output += ", ";
+		if(this.groceryListItems.length > 0){
+			for(int i = 0; i < this.groceryListItems.length; i++){
+				output += this.groceryListItems[i].toString();
+				if(this.groceryListItems.length > 1 && i < this.groceryListItems.length - 1){
+					output += ", ";
+				}
 			}
 		}
-		return output;
+		return output + "]";
 	}
+	
 }
+	
+
