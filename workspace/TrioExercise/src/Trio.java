@@ -10,7 +10,7 @@ public class Trio implements MenuItem{
 		if(sandwich.getPrice() >= salad.getPrice()){
 			this.price += sandwich.getPrice();
 			if(salad.getPrice() >= drink.getPrice()){
-				this.price += drink.getPrice();
+				this.price += salad.getPrice();
 			}
 			else{
 				this.price += drink.getPrice();
@@ -18,6 +18,12 @@ public class Trio implements MenuItem{
 		}
 		else{
 			this.price += salad.getPrice();
+			if(drink.getPrice() >= sandwich.getPrice()){
+				this.price += drink.getPrice();
+			}
+			else{
+				this.price += sandwich.getPrice();
+			}
 		}
 	}
 	
@@ -32,5 +38,9 @@ public class Trio implements MenuItem{
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	
+	public String toString(){
+		return this.name + " $" + this.price;
 	}
 }
