@@ -10,6 +10,25 @@ public class IntArrayWorker
 	{
 		matrix = theMatrix;
 	}
+	
+	/**
+	 * Method to return the Count 
+	 * @return the total number of integers in the array
+	 */
+	public int getCount(int checkedInt)
+	{
+		int total = 0;
+		for (int row = 0; row < matrix.length; row++)
+		{
+			for (int col = 0; col < matrix[0].length; col++)
+			{
+				if(matrix[row][col] == checkedInt){
+					total++;
+				}
+			}
+		}
+		return total;
+	}
 
 	/**
 	 * Method to return the total 
