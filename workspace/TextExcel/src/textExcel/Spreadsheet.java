@@ -1,7 +1,13 @@
 package textExcel;
 
 public class Spreadsheet implements Grid {
-
+	
+	private Cell[][] Grid;
+	
+	
+	public Spreadsheet(){
+		Grid = new Cell[20][12];
+	}
 	@Override
 	public String processCommand(String command) {
 		// TODO Auto-generated method stub
@@ -10,8 +16,7 @@ public class Spreadsheet implements Grid {
 
 	@Override
 	public int getRows() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.Grid[0].length;
 	}
 
 	@Override
