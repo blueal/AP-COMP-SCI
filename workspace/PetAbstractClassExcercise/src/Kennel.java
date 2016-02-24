@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Kennel
 {
 	private List<Pet> petList;
+	
+	public Kennel(){
+		this.petList = new ArrayList<Pet>();
+	}
 
 	/** @param pet to be added to list. Assume not null.
 	 * Postcondition: pet is added to petList
