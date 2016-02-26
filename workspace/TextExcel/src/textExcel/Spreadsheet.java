@@ -11,7 +11,7 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
