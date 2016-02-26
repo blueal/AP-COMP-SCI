@@ -6,20 +6,18 @@ public class EmptyCell implements Cell {
 	public String fullCellText;
 	
 	public EmptyCell(){
-		this.abbreviatedCellText = "";
-		this.fullCellText = "";
+		this.abbreviatedCellText = "          ";
+		this.fullCellText = "          ";
 	}
 
 	@Override
 	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.abbreviatedCellText;
 	}
 
 	@Override
 	public String fullCellText() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.fullCellText;
 	}
 
 }

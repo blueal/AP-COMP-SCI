@@ -6,7 +6,7 @@ public class Spreadsheet implements Grid {
 	
 	
 	public Spreadsheet(){
-		Grid = new Cell[20][12];
+		Grid = new EmptyCell[20][12]; //[row][col]
 	}
 	@Override
 	public String processCommand(String command) {
@@ -16,13 +16,13 @@ public class Spreadsheet implements Grid {
 
 	@Override
 	public int getRows() {
-		return this.Grid[0].length;
+		return this.Grid.length;
 	}
 
 	@Override
 	public int getCols() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.Grid[0].length;
 	}
 
 	@Override
