@@ -33,8 +33,30 @@ public class Spreadsheet implements Grid {
 
 	@Override
 	public String getGridText() {
-		// TODO Auto-generated method stub
-		return null;
+		String output = "   |";
+		
+		//Create the header
+		for(int i = 1; i < 26; i++){
+			output += (Character.toString((char) (i + 64)));
+			output += "         |";
+		}
+		output+= "\n";
+		
+		//Do the rows
+
+		for(int i = 1; i < this.getRows(); i++){
+			String row = "" + i;
+			for(int j = row.length(); j < 3; j++){
+				row += " ";
+			}
+			row += "|";
+			
+			for(int j = 1; j < this.getCols(); j++){
+				//Do each column
+			}
+			output += row + "\n";
+		}
+		return output;
 	}
 
 }

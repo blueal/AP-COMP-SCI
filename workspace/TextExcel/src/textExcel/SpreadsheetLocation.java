@@ -17,7 +17,7 @@ public class SpreadsheetLocation implements Location {
 	@Override
 	public int getCol() {
 		// TODO Auto-generated method stub
-		return (Character.toUpperCase(this.loc.charAt(0)) - 'A');
+		return Character.toUpperCase(this.loc.charAt(0)) - 'A';
 	}
 
 }

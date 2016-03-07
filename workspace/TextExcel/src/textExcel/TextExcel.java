@@ -9,6 +9,20 @@ public class TextExcel
 {
 	public static void main(String[] args)
 	{
+		/*TESTING
+		 */
+		
+		for(int i = 1; i < 26; i++){
+			//char test = (char) i;
+			System.out.println(Character.toString((char) (i + 64)));
+		}
+		
+		/*
+		 * 
+		 */
+		
+		
+		
         SpreadsheetLocation loc = new SpreadsheetLocation("L20");
         System.out.println(loc.getRow());
 		
