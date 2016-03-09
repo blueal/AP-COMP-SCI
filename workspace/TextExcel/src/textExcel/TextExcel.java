@@ -12,10 +12,6 @@ public class TextExcel
 		/*TESTING
 		 */
 		
-		for(int i = 1; i < 26; i++){
-			//char test = (char) i;
-			System.out.println(Character.toString((char) (i + 64)));
-		}
 		
 		/*
 		 * 

@@ -2,12 +2,12 @@ package textExcel;
 
 public class EmptyCell implements Cell {
 
-	public String abbreviatedCellText;
-	public String fullCellText;
+	private String abbreviatedCellText;
+	private String fullCellText;
 	
 	public EmptyCell(){
 		this.abbreviatedCellText = "          ";
-		this.fullCellText = "          ";
+		this.fullCellText = "";
 	}
 
 	@Override
