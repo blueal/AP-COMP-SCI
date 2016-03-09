@@ -16,8 +16,17 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) {
 		command = command.toLowerCase();
-		if(command.equals("print")){
+		if(command.))
+		else if(command.equals("print")){
 			return this.getGridText();
+		}
+		else if(command.equals("clear")){
+			for(int i = 0; i < this.getRows(); i++){
+				for(int j = 0; j < this.getCols(); j++){
+					this.Grid[i][j] = new EmptyCell();
+				}
+			}
+			return "";
 		}
 		else{
 			return "";
