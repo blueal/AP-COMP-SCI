@@ -11,6 +11,31 @@ public class IntArrayWorker
 		matrix = theMatrix;
 	}
 	
+	
+	public int getLargest(){
+		
+		int largest = 0;
+		for (int row = 0; row < matrix.length; row++)
+		{
+			for (int col = 0; col < matrix[0].length; col++)
+			{
+				if(this.matrix[row][col] > largest){
+					largest = matrix[row][col];
+				}
+			}
+		}
+		return largest;
+	}
+	
+	public int getColTotal(int col){
+		int sum = 0;
+		for (int row = 0; row < matrix.length; row++)
+		{
+			sum += this.matrix[row][col];
+		}
+		return sum;
+	}
+	
 	/**
 	 * Method to return the Count 
 	 * @return the total number of integers in the array
@@ -20,7 +45,7 @@ public class IntArrayWorker
 		int total = 0;
 		for (int row = 0; row < matrix.length; row++)
 		{
-			for (int col = 0; col < matrix[0].length; col++)
+			for (int col = 0; col < matrix[row].length; col++)
 			{
 				if(matrix[row][col] == checkedInt){
 					total++;

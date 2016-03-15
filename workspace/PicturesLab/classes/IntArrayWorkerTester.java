@@ -22,7 +22,7 @@ public class IntArrayWorkerTester
 	}
 
 	/** Method to test getCount*/
-/*
+
 	public static void testGetCount()
 	{
 		IntArrayWorker worker = new IntArrayWorker();
@@ -32,7 +32,7 @@ public class IntArrayWorkerTester
 		int count = worker.getCount(1);
 		System.out.println("Count should be 6 and count is " + count);
 	}
-*/		
+	
 
 	/** Method to test getTotal */
 	public static void testGetTotal()
@@ -55,7 +55,7 @@ public class IntArrayWorkerTester
 	}
 
 	/** Method to test getLargest */
-/*
+
 	public static void testGetLargest()
 	{ // test when largest is last
 		IntArrayWorker worker = new IntArrayWorker();
@@ -79,10 +79,10 @@ public class IntArrayWorkerTester
 		largest = worker.getLargest();
 		System.out.println("Largest should be 6 and is " + largest);
 	}
-*/
+
 	
 	/** Method to test getColTotal */
-/*
+
 	public static void testGetColTotal()
 	{
 		IntArrayWorker worker = new IntArrayWorker();
@@ -95,15 +95,15 @@ public class IntArrayWorkerTester
 		total = worker.getColTotal(2);
 		System.out.println("Total for column 2 should be 9 and is " + total);
 	}
-*/
+
 	public static void main(String[] args)
 	{
 		testSetMatrix();
 		testFillPattern1();
-		//testGetCount(); 
+		testGetCount(); 
 		testGetTotal();
 		testGetTotalNested();
-		//testGetLargest();
-		//testGetColTotal();
+		testGetLargest();
+		testGetColTotal();
 	}
 }

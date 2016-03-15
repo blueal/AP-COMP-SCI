@@ -16,6 +16,33 @@ public class PictureTester
 		beach.zeroBlue();
 		beach.explore();
 	}
+	
+	/** Method to test keepOnlyBlue */
+	public static void testKeepOnlyBlue()
+	{
+		Picture beach = new Picture("beach.jpg");
+		beach.explore();
+		beach.keepOnlyBlue();
+		beach.explore();
+	}
+	
+	/** Method to test grayscale */
+	public static void testGrayscale()
+	{
+		Picture beach = new Picture("beach.jpg");
+		beach.explore();
+		beach.grayscale();
+		beach.explore();
+	}
+	
+	/** Method to test negate */
+	public static void testNegate()
+	{
+		Picture beach = new Picture("beach.jpg");
+		beach.explore();
+		beach.negate();
+		beach.explore();
+	}
 
 	/** Method to test mirrorVertical */
 	public static void testMirrorVertical()
@@ -34,6 +61,14 @@ public class PictureTester
 		temple.mirrorTemple();
 		temple.explore();
 	}
+	
+	 public static void testMirrorGull()
+	 {
+	   Picture seagull = new Picture("seagull.jpg");
+	   seagull.explore();
+	   seagull.mirrorGull();
+	   seagull.explore();
+	 }
 
 	/** Method to test the collage method */
 	public static void testCollage()
@@ -42,12 +77,18 @@ public class PictureTester
 		canvas.createCollage();
 		canvas.explore();
 	}
+	 public static void testCopy()
+	 {
+	   Picture canvas = new Picture("640x480.jpg");
+	   canvas.createCollage();
+	   canvas.explore();
+	 }
 
 	/** Method to test edgeDetection */
 	public static void testEdgeDetection()
 	{
 		Picture swan = new Picture("swan.jpg");
-		swan.edgeDetection(10);
+		swan.edgeDetection(27);
 		swan.explore();
 	}
 
@@ -59,20 +100,20 @@ public class PictureTester
 		// and comment out the ones you don't want
 		// to run
 		testZeroBlue();
-		//testKeepOnlyBlue();
+		testKeepOnlyBlue();
 		//testKeepOnlyRed();
 		//testKeepOnlyGreen();
-		//testNegate();
-		//testGrayscale();
+		testNegate();
+		testGrayscale();
 		//testFixUnderwater();
 		//testMirrorVertical();
 		//testMirrorTemple();
 		//testMirrorArms();
-		//testMirrorGull();
+		testMirrorGull();
 		//testMirrorDiagonal();
 		//testCollage();
-		//testCopy();
-		//testEdgeDetection();
+		testCopy();
+		testEdgeDetection();
 		//testEdgeDetection2();
 		//testChromakey();
 		//testEncodeAndDecode();
