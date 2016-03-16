@@ -24,7 +24,7 @@ public class DrinkTest
         Drink drink = new Drink("some drink", 10);
     }
     
-    /*
+    
   
      // Uncomment this test when you are ready to test SugarFreeDrink class.
     
@@ -49,9 +49,9 @@ public class DrinkTest
         assertEquals("This drink has no artificial sweeteners.", output.toString().trim());
     }
  
-    */
     
-    /*
+    
+    
      // Uncomment this test when you are ready to test FrozenDrink class.
      
     @Test
@@ -78,9 +78,9 @@ public class DrinkTest
         assertEquals(true, drink.chug(2));
         assertEquals("Glug, glug, glug! You have 2 oz left.", output.toString().trim());        
     }
-    */
     
-    /*
+    
+    
       
     // Uncomment this test when you are ready to test AlcoholDrink class.
     
@@ -101,9 +101,9 @@ public class DrinkTest
         assertEquals(false, drink.chug(2));
         assertEquals(4, drink.getMaxGulp());        
     }
-    */
     
-    /*
+    
+    
     
       
      //Uncomment this test when you have all Drink subclasses implemented.
@@ -120,6 +120,6 @@ public class DrinkTest
         assertEquals(8, drinks[1].getOunces());
         assertEquals(5, drinks[2].getOunces());
     }
-    */
+    
      
 }
