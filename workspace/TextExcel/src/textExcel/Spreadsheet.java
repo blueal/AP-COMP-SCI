@@ -33,14 +33,25 @@ public class Spreadsheet implements Grid {
 			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
 			
 			int start = command.indexOf("\"");
-			//System.out.println(start);
 			String text = command.substring(start + 1, command.length() - 1);
-			//System.out.println("(" + text + ")");
-			//if(!(getCell(loc) instanceof TextCell)){
-				this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
-			//}
+			
+			this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
 
 			return "";
+		}
+		else if(command.matches("[A-z]\\d?\\d\\s[=]\\s-?\\d+(\\.\\d+)?")){
+			/*Set ValueCell
+			
+			String cell = command.substring(0, command.indexOf(' ')).toUpperCase();
+			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
+			
+			int start = command.indexOf("\"");
+			String text = command.substring(start + 1, command.length() - 1);
+			
+			this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
+		 	*/
+			return "";
+			
 		}
 		else if(command.matches("(?i)clear\\s[A-z]\\d?\\d")){
 			//clear cell
