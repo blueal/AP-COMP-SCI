@@ -15,12 +15,46 @@ public class Spreadsheet implements Grid {
 	}
 	@Override
 	public String processCommand(String command) {
-		command = command.toLowerCase();
-		if(command.))
-		else if(command.equals("print")){
+		//String command = input.toLowerCase();
+		if(command.matches("[A-z]\\d?\\d")){
+			//Cell display
+	        SpreadsheetLocation loc = new SpreadsheetLocation(command);
+	        if (getCell(loc) instanceof EmptyCell) {
+	        	return "";
+	        }
+	        else{
+	        	return getCell(loc).fullCellText();
+	        }
+	        
+		}
+		else if(command.matches("[A-z]\\d?\\d\\s[=]\\s[\"]?.+[\"]")){
+			//Set TextCell
+			String cell = command.substring(0, command.indexOf(' ')).toUpperCase();
+			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
+			
+			int start = command.indexOf("\"");
+			//System.out.println(start);
+			String text = command.substring(start + 1, command.length() - 1);
+			//System.out.println("(" + text + ")");
+			//if(!(getCell(loc) instanceof TextCell)){
+				this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
+			//}
+
+			return "";
+		}
+		else if(command.matches("(?i)clear\\s[A-z]\\d?\\d")){
+			//clear cell
+			String cell = command.substring(command.indexOf(' ') + 1).toUpperCase();
+			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
+			this.Grid[loc.getRow()][loc.getCol()] = new EmptyCell();
+			return "";
+		}
+		else if(command.equalsIgnoreCase("print")){
+			//print grid
 			return this.getGridText();
 		}
-		else if(command.equals("clear")){
+		else if(command.equalsIgnoreCase("clear")){
+			//clear grid
 			for(int i = 0; i < this.getRows(); i++){
 				for(int j = 0; j < this.getCols(); j++){
 					this.Grid[i][j] = new EmptyCell();
@@ -46,8 +80,7 @@ public class Spreadsheet implements Grid {
 
 	@Override
 	public Cell getCell(Location loc) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.Grid[loc.getRow()][loc.getCol()];
 	}
 
 	@Override
