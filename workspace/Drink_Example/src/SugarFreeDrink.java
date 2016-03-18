@@ -1,10 +1,17 @@
 
 public class SugarFreeDrink extends Drink {
-	SugarFreeDrink(String name, int oz){
-		Drink(name, 0, oz);
-		this.name = name;
-		this.gramsOfSugar = 0;
-		this.ounces = oz; 
-
+	boolean artificalSweeteners;
+	SugarFreeDrink(String name, boolean artifical){
+		super(name, 0, 20);
+		artificalSweeteners = artifical;
+	}
+	
+	public void printDrinkLabel(){
+		if(artificalSweeteners){
+			System.out.println("This drink is not natural.");
+		}
+		else{
+			System.out.println("This drink has no artificial sweeteners.");
+		}
 	}
 }
