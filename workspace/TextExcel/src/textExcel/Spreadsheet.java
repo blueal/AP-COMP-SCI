@@ -40,16 +40,30 @@ public class Spreadsheet implements Grid {
 			return "";
 		}
 		else if(command.matches("[A-z]\\d?\\d\\s[=]\\s-?\\d+(\\.\\d+)?")){
-			/*Set ValueCell
+			//Set ValueCell
 			
 			String cell = command.substring(0, command.indexOf(' ')).toUpperCase();
 			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
 			
-			int start = command.indexOf("\"");
-			String text = command.substring(start + 1, command.length() - 1);
+			int start = command.indexOf("=");
+			String text = command.substring(start + 2);
 			
-			this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
-		 	*/
+			this.Grid[loc.getRow()][loc.getCol()] = new ValueCell(text);
+		 	
+			return "";
+			
+		}
+		else if(command.matches("[A-z]\\d?\\d\\s[=]\\s-?\\d+(\\.\\d+)?[%]")){
+			//Set PercentCell
+			
+			String cell = command.substring(0, command.indexOf(' ')).toUpperCase();
+			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
+			
+			int start = command.indexOf("=");
+			String text = command.substring(start + 2);
+			
+			this.Grid[loc.getRow()][loc.getCol()] = new PercentCell(text);
+		 	
 			return "";
 			
 		}
