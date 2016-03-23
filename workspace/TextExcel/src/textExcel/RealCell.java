@@ -6,7 +6,6 @@ public abstract class RealCell implements Cell {
 
 	public RealCell(String text) {
 		this.fullCellText = text;
-		System.out.println("REAL CELL: " + text);
 	}
 
 	@Override

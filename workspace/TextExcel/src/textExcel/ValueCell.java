@@ -4,7 +4,6 @@ public class ValueCell extends RealCell {
 
 	public ValueCell(String text) {
 		super(text);
-		System.out.println("VALUE CELL: " + text);
 	}
 
 	@Override
