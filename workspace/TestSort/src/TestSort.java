@@ -5,10 +5,9 @@ public class TestSort {
 	public static void main(String[] args) {
 		int[] array = {34, 2, 45, -6, 42, 88, 442, -18, -20, 0};
 		
-		System.out.println("Swap...");
 		System.out.println("Before: " + Arrays.toString(array));
 		
-		bubbleSort(array);
+		insertionSort(array);
 		
 		System.out.println("After: " + Arrays.toString(array));
 
@@ -29,6 +28,16 @@ public class TestSort {
 					sorting = true;
 					swap(array, i, i+1);
 				}
+			}
+		}
+	}
+	
+	public static void insertionSort(int[] array){
+		for(int i = 1; i < array.length; i++){
+			int j = i;
+			while(j > 0 && array[j-1] > array[j]){
+				swap(array, j, j-1);
+				j--;
 			}
 		}
 	}
