@@ -27,7 +27,7 @@ public class Spreadsheet implements Grid {
 	        }
 	        
 		}
-		else if(command.matches("[A-z]\\d?\\d\\s[=]\\s[\"]?.+[\"]")){
+		else if(command.matches("[A-z]\\d?\\d\\s[\"]\\s[\"]?.+[\"]")){
 			//Set TextCell
 			String cell = command.substring(0, command.indexOf(' ')).toUpperCase();
 			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
@@ -66,6 +66,18 @@ public class Spreadsheet implements Grid {
 		 	
 			return "";
 			
+		}
+		else if(command.matches("[A-z]\\d?\\d\\s[=]\\s[(]?.+[)]")){
+			//Set FormulaCell
+			String cell = command.substring(0, command.indexOf(' ')).toUpperCase();
+			SpreadsheetLocation loc = new SpreadsheetLocation(cell);
+			
+			int start = command.indexOf("(");
+			String text = command.substring(start + 1, command.length() - 1);
+			
+			this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
+
+			return "Create a FormulaCell at " + cell + " with the following: " + text;
 		}
 		else if(command.matches("(?i)clear\\s[A-z]\\d?\\d")){
 			//clear cell
