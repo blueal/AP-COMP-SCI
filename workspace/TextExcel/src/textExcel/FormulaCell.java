@@ -8,7 +8,11 @@ public class FormulaCell extends RealCell {
 
 	@Override
 	public double getDoubleValue() {
-		String[] text = this.fullCellText().split(" ");
+		String textString = this.fullCellText();
+		int start = textString.indexOf("(");
+		textString = textString.substring(start + 1, textString.length() - 1);
+		
+		String[] text = textString.split(" ");
 		
 		double number = Double.parseDouble(text[1]);
 		for(int i = 0; i < text.length; i += 2){
