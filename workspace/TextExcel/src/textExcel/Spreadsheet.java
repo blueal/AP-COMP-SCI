@@ -1,6 +1,6 @@
 package textExcel;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class Spreadsheet implements Grid {
 	
@@ -78,7 +78,7 @@ public class Spreadsheet implements Grid {
 			String text = command.substring(start);
 			
 			
-			this.Grid[loc.getRow()][loc.getCol()] = new FormulaCell(text);
+			this.Grid[loc.getRow()][loc.getCol()] = new FormulaCell(text, this);
 			
 			
 
