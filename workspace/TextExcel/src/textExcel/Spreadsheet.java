@@ -1,5 +1,7 @@
 package textExcel;
 
+import java.util.Arrays;
+
 public class Spreadsheet implements Grid {
 	
 	private Cell[][] Grid;
@@ -75,9 +77,11 @@ public class Spreadsheet implements Grid {
 			int start = command.indexOf("(");
 			String text = command.substring(start + 1, command.length() - 1);
 			
-			this.Grid[loc.getRow()][loc.getCol()] = new TextCell(text);
+			this.Grid[loc.getRow()][loc.getCol()] = new FormulaCell(text);
+			
+			
 
-			return "Create a FormulaCell at " + cell + " with the following: " + text;
+			return "";
 		}
 		else if(command.matches("(?i)clear\\s[A-z]\\d?\\d")){
 			//clear cell
