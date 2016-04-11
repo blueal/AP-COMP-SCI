@@ -124,6 +124,9 @@ public class Spreadsheet implements Grid {
 	public Cell getCell(Location loc) {
 		return this.Grid[loc.getRow()][loc.getCol()];
 	}
+	public Cell getCell(int row, int col) {
+		return this.Grid[row][col];
+	}
 
 	@Override
 	public String getGridText() {

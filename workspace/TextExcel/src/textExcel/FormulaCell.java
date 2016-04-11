@@ -17,6 +17,46 @@ public class FormulaCell extends RealCell {
 		
 		String[] text = textString.split(" ");
 		
+		if(text[1].equalsIgnoreCase("SUM")){
+			//Only Sum the range of numbers
+			String[] cells = text[2].split("-");
+			SpreadsheetLocation topLeft = new SpreadsheetLocation(cells[0]);
+			SpreadsheetLocation bottomRight = new SpreadsheetLocation(cells[1]);
+			
+			double total = 0;
+			
+			for(int row = topLeft.getRow(); row <= bottomRight.getRow(); row++){
+				for(int col = topLeft.getCol(); col <= bottomRight.getCol(); col++){
+					
+					total += ((RealCell) this.theSpreadsheet.getCell(row, col)).getDoubleValue();
+					
+				}
+			}
+			
+			return total;
+		}
+		
+		if(text[1].equalsIgnoreCase("AVG")){
+			//Only Average the range of numbers
+			String[] cells = text[2].split("-");
+			SpreadsheetLocation topLeft = new SpreadsheetLocation(cells[0]);
+			SpreadsheetLocation bottomRight = new SpreadsheetLocation(cells[1]);
+			
+			double total = 0;
+			int tally = 0;
+			
+			for(int row = topLeft.getRow(); row <= bottomRight.getRow(); row++){
+				for(int col = topLeft.getCol(); col <= bottomRight.getCol(); col++){
+					
+					total += ((RealCell) this.theSpreadsheet.getCell(row, col)).getDoubleValue();
+					tally++;
+					
+				}
+			}
+			
+			return total / (double) tally;
+		}
+		
 		double number = getNumber(text[1]);
 		for(int i = 0; i < text.length; i += 2){
 			if(text[i].equals("+")){
@@ -36,22 +76,12 @@ public class FormulaCell extends RealCell {
 	}
 	
 	private double getNumber(String input){
-		System.out.println("GETTING: " + input);
-		if(input.equalsIgnoreCase("AVG")){
-			// TODO Work on cell reference
+		try{
+			return Double.parseDouble(input);
 		}
-		else if(input.equalsIgnoreCase("SUM")){
-			// TODO Work on cell reference
-		}
-		else{
-			// TODO Work on cell reference
-			try{
-				return Double.parseDouble(input);
-			}
-			catch(NumberFormatException e){
-				SpreadsheetLocation loc = new SpreadsheetLocation(input);
-				return ((RealCell) this.theSpreadsheet.getCell(loc)).getDoubleValue();
-			}
+		catch(NumberFormatException e){
+			SpreadsheetLocation loc = new SpreadsheetLocation(input);
+			return ((RealCell) this.theSpreadsheet.getCell(loc)).getDoubleValue();
 		}
 	}
 
